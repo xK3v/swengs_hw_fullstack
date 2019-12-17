@@ -18,12 +18,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentFormComponent } from './student-form/student-form.component';
+import {DateComponent} from './date/date.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentListComponent,
-    StudentFormComponent
+    StudentFormComponent,
+    DateComponent
   ],
   imports: [
     BrowserModule,

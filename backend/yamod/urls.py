@@ -23,7 +23,7 @@ urlpatterns = [
     path('student/<int:pk>/get', views.student_form_get),
     path('student/<int:pk>/update', views.student_form_update),
     path('student/<int:pk>/delete', views.student_delete),
-    path('person/options', views.course_option_list),
+    path('course/options', views.course_option_list),
     
     #url(r'^api-token-auth/', obtain_jwt_token),
 

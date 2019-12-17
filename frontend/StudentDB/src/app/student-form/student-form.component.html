@@ -1,1 +1,44 @@
-<p>student-form works!</p>
+<form [formGroup]="studentFormGroup" class="student-form">
+  <mat-form-field>
+    <input matInput type="text" placeholder="First name" formControlName="last_name" required>
+    <mat-hint align="end">Last name of student</mat-hint>
+    <mat-error *ngIf="studentFormGroup.controls.last_name.hasError('required')">Last name is required</mat-error>
+    <!--mat-error *ngIf="movieFormGroup.controls.title.hasError('titleAlreadyExists')">Title already exists</mat-error-->
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="text" placeholder="First name" formControlName="first_name" required>
+    <mat-hint align="end">First name of student</mat-hint>
+    <mat-error *ngIf="studentFormGroup.controls.first_name.hasError('required')">First name is required</mat-error>
+    <!--mat-error *ngIf="movieFormGroup.controls.title.hasError('titleAlreadyExists')">Title already exists</mat-error-->
+  </mat-form-field>
+
+  <app-date placeholder="Date of birth" formControlName="dob" hint="The date of birth of the student"></app-date>
+
+  <mat-form-field>
+    <mat-select placeholder="Department" formControlName="department">
+      <mat-option [value]="null">Unknown</mat-option>
+      <mat-option [value]="departmentOption.id"
+                  *ngFor="let departmentOption of departmentOptions">{{departmentOption.name}}</mat-option>
+    </mat-select>
+    <mat-hint align="end">The department of the student</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Course" formControlName="courses" multiple>
+      <mat-option [value]="null">Unknown</mat-option>
+      <mat-option [value]="courseOption.id"
+                  *ngFor="let courseOption of courseOptions">{{courseOption.first_name}} {{courseOption.last_name}}</mat-option>
+    </mat-select>
+    <mat-hint align="end">The courses of the student</mat-hint>
+  </mat-form-field>
+
+  <br/>
+
+  <mat-card-actions align="center">
+    <button mat-raised-button color="primary" [disabled]="!studentFormGroup.valid" (click)="createStudent()">
+      <span *ngIf="!studentFormGroup.controls.id.value">Create</span>
+      <span *ngIf="studentFormGroup.controls.id.value">Update</span>
+    </button>
+  </mat-card-actions>
+</form>

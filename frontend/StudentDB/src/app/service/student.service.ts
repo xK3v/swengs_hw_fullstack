@@ -12,4 +12,16 @@ export class StudentService {
   getStudents() {
     return this.httpClient.get('/api/student/list');
   }
+
+  createStudent(student: any) {
+    return this.httpClient.post('/api/student/create', student);
+  }
+
+  updateStudent(student: any) {
+    return this.httpClient.put('/api/student/' + student.id +  'update', student);
+  }
+
+  deleteStudent(student: any) {
+    return this.httpClient.delete('/api/student/' + student.id + '/delete');
+  }
 }

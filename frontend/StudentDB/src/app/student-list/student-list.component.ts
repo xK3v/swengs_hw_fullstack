@@ -15,8 +15,14 @@ export class StudentListComponent implements OnInit {
   constructor(private httpClient: HttpClient, private studentService: StudentService) { }
 
   ngOnInit() {
-    this.studentService.getStudents().subscribe((response:any[]) => {
+    this.studentService.getStudents().subscribe((response: any[]) => {
       this.students = response;
+    });
+  }
+
+  deleteStudent(student: any) {
+    this.studentService.deleteStudent(student).subscribe(() => {
+      this.ngOnInit();
     });
   }
 

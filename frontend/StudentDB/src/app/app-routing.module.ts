@@ -5,8 +5,10 @@ import {StudentFormComponent} from './student-form/student-form.component';
 
 
 const routes: Routes = [
+  { path: '', redirectTo: 'student-list', pathMatch: 'full'},
   { path: 'student-list', component: StudentListComponent},
   { path: 'student-form', component: StudentFormComponent},
+  { path: 'student-form/:id', component: StudentFormComponent},
 ];
 
 @NgModule({
