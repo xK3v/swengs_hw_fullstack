@@ -19,13 +19,17 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { StudentListComponent } from './student-list/student-list.component';
 import { StudentFormComponent } from './student-form/student-form.component';
 import {DateComponent} from './date/date.component';
+import { CourseListComponent } from './course-list/course-list.component';
+import { CourseFormComponent } from './course-form/course-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StudentListComponent,
     StudentFormComponent,
-    DateComponent
+    DateComponent,
+    CourseListComponent,
+    CourseFormComponent
   ],
   imports: [
     BrowserModule,

@@ -26,9 +26,9 @@
 
   <mat-form-field>
     <mat-select placeholder="Course" formControlName="courses" multiple>
-      <mat-option [value]="null">Unknown</mat-option>
+      <!--mat-option [value]="null">Unknown</mat-option-->
       <mat-option [value]="courseOption.id"
-                  *ngFor="let courseOption of courseOptions">{{courseOption.first_name}} {{courseOption.last_name}}</mat-option>
+                  *ngFor="let courseOption of courseOptions">{{courseOption.name}}</mat-option>
     </mat-select>
     <mat-hint align="end">The courses of the student</mat-hint>
   </mat-form-field>

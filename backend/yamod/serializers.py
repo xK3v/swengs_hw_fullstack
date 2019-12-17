@@ -12,6 +12,22 @@ class CourseOptionSerializer(serializers.ModelSerializer):
         model = Course
         fields = ['id', 'name', 'ects']
 
+class CourseListSerializer(serializers.ModelSerializer):
+    #department_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Course
+        fields = ['id', 'name', 'ects']
+
+    #def get_department_name(self, obj):
+    #    return obj.department.name if obj.department else ''
+
+class CourseFormSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Course
+        fields = '__all__'
+
 
 class StudentListSerializer(serializers.ModelSerializer):
     department_name = serializers.SerializerMethodField()

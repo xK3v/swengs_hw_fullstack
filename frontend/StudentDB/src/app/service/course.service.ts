@@ -6,9 +6,25 @@ import {HttpClient} from '@angular/common/http';
 })
 export class CourseService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   retrieveCourseOptions() {
-    return this.http.get <any[]>('/api/course/options');
+    return this.httpClient.get <any[]>('/api/course/options');
+  }
+
+  getCourses() {
+    return this.httpClient.get('/api/course/list');
+  }
+
+  createCourse(course: any) {
+    return this.httpClient.post('/api/course/create', course);
+  }
+
+  updateCourse(course: any) {
+    return this.httpClient.put('/api/course/' + course.id +  'update', course);
+  }
+
+  deleteCourse(course: any) {
+    return this.httpClient.delete('/api/course/' + course.id + '/delete');
   }
 }

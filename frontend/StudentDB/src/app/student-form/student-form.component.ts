@@ -22,6 +22,7 @@ export class StudentFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    const id = this.route.snapshot.paramMap.get('id');
 
     this.courseService.retrieveCourseOptions().subscribe((result) => {
       this.courseOptions = result;
@@ -40,7 +41,8 @@ export class StudentFormComponent implements OnInit {
       'courses': [[]],
     });
 
-    const id = this.route.snapshot.paramMap.get('id');
+
+    // TODO: change to Service
     if (id) {
       this.httpClient.get('/api/student/' + id + '/get').subscribe((response) => {
         this.studentFormGroup.patchValue(response);
@@ -52,11 +54,13 @@ export class StudentFormComponent implements OnInit {
     const student = this.studentFormGroup.value;
 
     if (student.id) {
-      this.studentService.updateStudent(student).subscribe((response: any) => {
+      this.studentService.updateStudent(student).subscribe(() => {
+      // this.httpClient.put('/api/student/' + student.id +  'update', student).subscribe(() => {
         alert('updated successfully');
       });
     } else {
       this.studentService.createStudent(student).subscribe((response: any) => {
+      // this.httpClient.post('/api/student/create', student).subscribe((response: any) => {
         alert('created successfully');
         this.router.navigate(['student-form/' + response.id]);
       });
