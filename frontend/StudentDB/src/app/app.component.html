@@ -1,8 +1,12 @@
 <mat-toolbar>
-  <button mat-button [matMenuTriggerFor]="studentMenu">StudentDB</button>
+  <button mat-button [matMenuTriggerFor]="studentMenu">Students</button>
   <mat-menu #studentMenu="matMenu">
     <button mat-menu-item routerLink="student-list">List students</button>
     <button mat-menu-item routerLink="student-form">Create student</button>
+  </mat-menu>
+
+  <button mat-button [matMenuTriggerFor]="courseMenu">Courses</button>
+  <mat-menu #courseMenu="matMenu">
     <button mat-menu-item routerLink="course-list">List courses</button>
     <button mat-menu-item routerLink="course-form">Create course</button>
   </mat-menu>
