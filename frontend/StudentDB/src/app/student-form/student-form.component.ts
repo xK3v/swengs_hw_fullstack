@@ -41,12 +41,11 @@ export class StudentFormComponent implements OnInit {
       'courses': [[]],
     });
 
-
     // TODO: change to Service
     if (id) {
       this.httpClient.get('/api/student/' + id + '/get').subscribe((response) => {
         this.studentFormGroup.patchValue(response);
-      })
+      });
     }
   }
 
@@ -55,12 +54,12 @@ export class StudentFormComponent implements OnInit {
 
     if (student.id) {
       this.studentService.updateStudent(student).subscribe(() => {
-      // this.httpClient.put('/api/student/' + student.id +  'update', student).subscribe(() => {
+        // this.httpClient.put('/api/student/' + student.id +  'update', student).subscribe(() => {
         alert('updated successfully');
       });
     } else {
       this.studentService.createStudent(student).subscribe((response: any) => {
-      // this.httpClient.post('/api/student/create', student).subscribe((response: any) => {
+        // this.httpClient.post('/api/student/create', student).subscribe((response: any) => {
         alert('created successfully');
         this.router.navigate(['student-form/' + response.id]);
       });

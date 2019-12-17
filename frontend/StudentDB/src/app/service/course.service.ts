@@ -21,7 +21,7 @@ export class CourseService {
   }
 
   updateCourse(course: any) {
-    return this.httpClient.put('/api/course/' + course.id +  'update', course);
+    return this.httpClient.put('/api/course/' + course.id +  '/update', course);
   }
 
   deleteCourse(course: any) {

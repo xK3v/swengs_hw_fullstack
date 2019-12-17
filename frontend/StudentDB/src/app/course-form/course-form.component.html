@@ -1,1 +1,24 @@
-<p>course-form works!</p>
+<form [formGroup]="courseFormGroup" class="course-form">
+  <mat-form-field>
+    <input matInput type="text" placeholder="Name" formControlName="name" required>
+    <mat-hint align="end">Name of the course</mat-hint>
+    <mat-error *ngIf="courseFormGroup.controls.name.hasError('required')">Name is required</mat-error>
+    <!--mat-error *ngIf="movieFormGroup.controls.title.hasError('titleAlreadyExists')">Title already exists</mat-error-->
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number" placeholder="ECTS" formControlName="ects" required>
+    <mat-hint align="end">ECTS count of the course</mat-hint>
+    <mat-error *ngIf="courseFormGroup.controls.ects.hasError('required')">ECTS are required</mat-error>
+    <!--mat-error *ngIf="movieFormGroup.controls.title.hasError('titleAlreadyExists')">Title already exists</mat-error-->
+  </mat-form-field>
+
+  <br/>
+
+  <mat-card-actions align="center">
+    <button mat-raised-button color="primary" [disabled]="!courseFormGroup.valid" (click)="createCourse()">
+      <span *ngIf="!courseFormGroup.controls.id.value">Create</span>
+      <span *ngIf="courseFormGroup.controls.id.value">Update</span>
+    </button>
+  </mat-card-actions>
+</form>
