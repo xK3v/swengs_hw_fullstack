@@ -5,6 +5,7 @@ import {StudentService} from '../service/student.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DepartmentService} from '../service/department.service';
 import {CourseService} from '../service/course.service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-student-form',
@@ -17,7 +18,7 @@ export class StudentFormComponent implements OnInit {
   departmentOptions;
   courseOptions;
 
-  constructor(private fb: FormBuilder, private httpClient: HttpClient, private router: Router, private route: ActivatedRoute,
+  constructor(private fb: FormBuilder, private httpClient: HttpClient, private router: Router, private route: ActivatedRoute, private snackBar: MatSnackBar,
               private studentService: StudentService, private departmentService: DepartmentService, private courseService: CourseService) {
   }
 
@@ -43,7 +44,7 @@ export class StudentFormComponent implements OnInit {
 
     // TODO: change to Service
     if (id) {
-      this.httpClient.get('/api/student/' + id + '/get').subscribe((response) => {
+      this.studentService.getStudent(id).subscribe((response) => {
         this.studentFormGroup.patchValue(response);
       });
     }
@@ -55,12 +56,18 @@ export class StudentFormComponent implements OnInit {
     if (student.id) {
       this.studentService.updateStudent(student).subscribe(() => {
         // this.httpClient.put('/api/student/' + student.id +  'update', student).subscribe(() => {
-        alert('updated successfully');
+        // alert('updated successfully');
+        this.snackBar.open('updated successfully', 'OKAY', {
+          duration: 3000
+        });
       });
     } else {
       this.studentService.createStudent(student).subscribe((response: any) => {
         // this.httpClient.post('/api/student/create', student).subscribe((response: any) => {
-        alert('created successfully');
+        // alert('created successfully');
+        this.snackBar.open('created successfully', 'OKAY', {
+          duration: 3000
+        });
         this.router.navigate(['student-form/' + response.id]);
       });
     }

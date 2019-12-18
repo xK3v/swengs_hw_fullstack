@@ -3,6 +3,7 @@ import {FormBuilder, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CourseService} from '../service/course.service';
 import {HttpClient} from '@angular/common/http';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-course-form',
@@ -14,7 +15,7 @@ export class CourseFormComponent implements OnInit {
   courseFormGroup;
 
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, private httpClient: HttpClient,
-              private courseService: CourseService) {
+              private courseService: CourseService, private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -28,7 +29,7 @@ export class CourseFormComponent implements OnInit {
 
     // TODO: change to Service
     if (id) {
-      this.httpClient.get('/api/course/' + id + '/get').subscribe((response) => {
+      this.courseService.getCourse(id).subscribe((response) => {
         this.courseFormGroup.patchValue(response);
       });
     }
@@ -39,11 +40,17 @@ export class CourseFormComponent implements OnInit {
 
     if (course.id) {
       this.courseService.updateCourse(course).subscribe(() => {
-        alert('updated successfully');
+        // alert('updated successfully');
+        this.snackBar.open('updated successfully', 'OKAY', {
+          duration: 3000
+        });
       });
     } else {
       this.courseService.createCourse(course).subscribe((response: any) => {
-        alert('created successfully');
+        // alert('created successfully');
+        this.snackBar.open('created successfully', 'OKAY', {
+          duration: 3000
+        });
         this.router.navigate(['course-form/' + response.id]);
       });
     }

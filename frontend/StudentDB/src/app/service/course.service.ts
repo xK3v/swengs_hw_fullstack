@@ -16,11 +16,16 @@ export class CourseService {
     return this.httpClient.get('/api/course/list');
   }
 
+  getCourse(id: any) {
+    return this.httpClient.get('/api/course/' + id + '/get');
+  }
+
   createCourse(course: any) {
     return this.httpClient.post('/api/course/create', course);
   }
 
   updateCourse(course: any) {
+    console.log(course);
     return this.httpClient.put('/api/course/' + course.id +  '/update', course);
   }
 

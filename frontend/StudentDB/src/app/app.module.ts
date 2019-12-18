@@ -10,7 +10,7 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatMenuModule, MatNativeDateModule,
-  MatSelectModule,
+  MatSelectModule, MatSnackBarModule,
   MatTableModule,
   MatToolbarModule
 } from '@angular/material';
@@ -48,6 +48,7 @@ import { CourseFormComponent } from './course-form/course-form.component';
     MatNativeDateModule,
     MatCheckboxModule,
     BrowserAnimationsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

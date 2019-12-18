@@ -1,4 +1,6 @@
 <mat-toolbar>
+  <button mat-button>StudentDB</button>
+
   <button mat-button [matMenuTriggerFor]="studentMenu">Students</button>
   <mat-menu #studentMenu="matMenu">
     <button mat-menu-item routerLink="student-list">List students</button>
