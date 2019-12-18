@@ -23,7 +23,7 @@ class Student(models.Model):
     dob = models.DateField()
     #plot = models.TextField()
     #duration = models.PositiveIntegerField(help_text='in Minutes')
-    #black_and_white = models.BooleanField()
+    active = models.BooleanField()
     department = models.ForeignKey(Department, on_delete=models.CASCADE, null=True)
     courses = models.ManyToManyField('Course', blank=True)
     #rating = models.PositiveIntegerField()

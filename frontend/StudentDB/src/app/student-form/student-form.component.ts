@@ -40,6 +40,7 @@ export class StudentFormComponent implements OnInit {
       'dob': [null],
       'department': [null],
       'courses': [[]],
+      'active': [true],
     });
 
     // TODO: change to Service
