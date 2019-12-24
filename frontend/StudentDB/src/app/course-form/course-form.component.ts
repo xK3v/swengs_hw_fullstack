@@ -27,7 +27,6 @@ export class CourseFormComponent implements OnInit {
       'ects': ['', Validators.required],
     });
 
-    // TODO: change to Service
     if (id) {
       this.courseService.getCourse(id).subscribe((response) => {
         this.courseFormGroup.patchValue(response);

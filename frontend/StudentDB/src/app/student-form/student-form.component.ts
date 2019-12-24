@@ -44,7 +44,6 @@ export class StudentFormComponent implements OnInit {
       'active': [true],
     });
 
-    // TODO: change to Service
     if (id) {
       this.studentService.getStudent(id).subscribe((response) => {
         this.studentFormGroup.patchValue(response);
