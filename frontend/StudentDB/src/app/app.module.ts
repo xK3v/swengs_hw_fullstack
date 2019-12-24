@@ -9,7 +9,7 @@ import {
   MatButtonModule, MatCardModule, MatCheckboxModule, MatDatepickerModule,
   MatFormFieldModule,
   MatInputModule,
-  MatMenuModule, MatNativeDateModule,
+  MatMenuModule, MatNativeDateModule, MatRadioModule,
   MatSelectModule, MatSnackBarModule,
   MatTableModule,
   MatToolbarModule
@@ -48,7 +48,8 @@ import { CourseFormComponent } from './course-form/course-form.component';
     MatNativeDateModule,
     MatCheckboxModule,
     BrowserAnimationsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

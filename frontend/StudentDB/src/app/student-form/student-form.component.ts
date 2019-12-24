@@ -37,6 +37,7 @@ export class StudentFormComponent implements OnInit {
       'id': [null],
       'last_name': ['', Validators.required],
       'first_name': ['', Validators.required],
+      'gender': [null, Validators.required],
       'dob': [null],
       'department': [null],
       'courses': [[]],

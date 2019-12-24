@@ -12,13 +12,15 @@ class Department(models.Model):
 
 class Student(models.Model):
 
-    #CHOICES = (
-    #    ('a', 'Action'),
-    #    ('c', 'Comedy')
-    #)
+    CHOICES = (
+        ('m', 'male'),
+        ('f', 'female'),
+        ('o', 'other')
+    )
 
     last_name = models.TextField()
     first_name = models.TextField()
+    gender = models.CharField(max_length=1, choices=CHOICES)
     #genre = models.CharField(max_length=1, choices=CHOICES, null=True)
     dob = models.DateField()
     #plot = models.TextField()

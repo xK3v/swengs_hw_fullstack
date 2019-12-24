@@ -13,6 +13,15 @@
     <!--mat-error *ngIf="movieFormGroup.controls.title.hasError('titleAlreadyExists')">Title already exists</mat-error-->
   </mat-form-field>
 
+  <mat-radio-group formControlName="gender">
+    <mat-hint align="end">Gender of the student<br></mat-hint>
+    <mat-radio-button value="m" class="gender-choice">Male</mat-radio-button>
+    <mat-radio-button value="f" class="gender-choice">Female</mat-radio-button>
+    <mat-radio-button value="o" class="gender-choice">Other</mat-radio-button>
+    <mat-error *ngIf="studentFormGroup.controls.gender.hasError('required')">Gender is required</mat-error>
+
+  </mat-radio-group>
+
   <app-date placeholder="Date of birth" formControlName="dob" hint="The date of birth of the student"></app-date>
 
   <mat-form-field>
