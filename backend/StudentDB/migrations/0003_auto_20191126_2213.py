@@ -7,19 +7,19 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('yamod', '0002_country_capital'),
+        ('StudentDB', '0002_country_capital'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='movie',
             name='actors',
-            field=models.ManyToManyField(null=True, to='yamod.Person'),
+            field=models.ManyToManyField(null=True, to='StudentDB.Person'),
         ),
         migrations.AlterField(
             model_name='movie',
             name='country',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='yamod.Country'),
+            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='StudentDB.Country'),
         ),
         migrations.AlterField(
             model_name='movie',

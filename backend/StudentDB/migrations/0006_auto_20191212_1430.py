@@ -7,7 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('yamod', '0005_movie_rating'),
+        ('StudentDB', '0005_movie_rating'),
     ]
 
     operations = [
@@ -33,8 +33,8 @@ class Migration(migrations.Migration):
                 ('last_name', models.TextField()),
                 ('first_name', models.TextField()),
                 ('dob', models.DateField()),
-                ('courses', models.ManyToManyField(blank=True, to='yamod.Course')),
-                ('department', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='yamod.Department')),
+                ('courses', models.ManyToManyField(blank=True, to='StudentDB.Course')),
+                ('department', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, to='StudentDB.Department')),
             ],
         ),
         migrations.RemoveField(

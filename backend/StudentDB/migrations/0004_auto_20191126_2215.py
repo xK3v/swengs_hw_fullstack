@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('yamod', '0003_auto_20191126_2213'),
+        ('StudentDB', '0003_auto_20191126_2213'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='movie',
             name='actors',
-            field=models.ManyToManyField(blank=True, to='yamod.Person'),
+            field=models.ManyToManyField(blank=True, to='StudentDB.Person'),
         ),
     ]

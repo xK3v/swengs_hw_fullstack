@@ -3,8 +3,8 @@ from rest_framework.decorators import api_view
 from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
 
-from yamod.models import Department, Student, Course
-from yamod.serializers import DepartmentOptionSerializer, StudentListSerializer, StudentFormSerializer, CourseOptionSerializer, CourseListSerializer, CourseFormSerializer
+from StudentDB.models import Department, Student, Course
+from StudentDB.serializers import DepartmentOptionSerializer, StudentListSerializer, StudentFormSerializer, CourseOptionSerializer, CourseListSerializer, CourseFormSerializer
 
 # Department
 

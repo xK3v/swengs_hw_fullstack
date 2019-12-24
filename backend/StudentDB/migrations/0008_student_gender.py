@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('yamod', '0007_student_active'),
+        ('StudentDB', '0007_student_active'),
     ]
 
     operations = [

@@ -38,8 +38,8 @@ class Migration(migrations.Migration):
                 ('plot', models.TextField()),
                 ('duration', models.PositiveIntegerField(help_text='in Minutes')),
                 ('black_and_white', models.BooleanField()),
-                ('actors', models.ManyToManyField(to='yamod.Person')),
-                ('country', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='yamod.Country')),
+                ('actors', models.ManyToManyField(to='StudentDB.Person')),
+                ('country', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='StudentDB.Country')),
             ],
         ),
     ]
