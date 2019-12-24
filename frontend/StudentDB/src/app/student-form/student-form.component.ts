@@ -25,13 +25,10 @@ export class StudentFormComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
 
-    this.courseService.retrieveCourseOptions().subscribe((result) => {
-      this.courseOptions = result;
-    });
+    const data = this.route.snapshot.data;
 
-    this.departmentService.retrieveDepartmentOptions().subscribe((result) => {
-      this.departmentOptions = result;
-    });
+    this.courseOptions = data.courseOptions;
+    this.departmentOptions = data.departmentOptions;
 
     this.studentFormGroup = this.fb.group({
       'id': [null],
@@ -44,10 +41,8 @@ export class StudentFormComponent implements OnInit {
       'active': [true],
     });
 
-    if (id) {
-      this.studentService.getStudent(id).subscribe((response) => {
-        this.studentFormGroup.patchValue(response);
-      });
+    if (data.student) {
+      this.studentFormGroup.patchValue(data.student);
     }
   }
 

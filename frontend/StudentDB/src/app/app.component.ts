@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {UserService} from './service/user.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'StudentDB';
+
+  isLoggedIn = false;
+
+  constructor(private userService: UserService) {
+  }
+
+  ngOnInit() {
+    this.userService.isLoggedIn.subscribe((isLoggedIn) => {
+      this.isLoggedIn = isLoggedIn;
+    });
+  }
 }

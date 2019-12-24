@@ -21,6 +21,13 @@ import { StudentFormComponent } from './student-form/student-form.component';
 import {DateComponent} from './date/date.component';
 import { CourseListComponent } from './course-list/course-list.component';
 import { CourseFormComponent } from './course-form/course-form.component';
+import {JwtModule} from '@auth0/angular-jwt';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
 
 @NgModule({
   declarations: [
@@ -29,7 +36,9 @@ import { CourseFormComponent } from './course-form/course-form.component';
     StudentFormComponent,
     DateComponent,
     CourseListComponent,
-    CourseFormComponent
+    CourseFormComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +59,13 @@ import { CourseFormComponent } from './course-form/course-form.component';
     BrowserAnimationsModule,
     MatSnackBarModule,
     MatRadioModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ['localhost:4200']
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

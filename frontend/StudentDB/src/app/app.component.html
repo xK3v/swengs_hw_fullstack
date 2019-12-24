@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar *ngIf="isLoggedIn" color="primary">
   <span>StudentDB</span>
 
   <button mat-button [matMenuTriggerFor]="studentMenu">Students</button>
@@ -12,7 +12,8 @@
     <button mat-menu-item routerLink="course-list">List courses</button>
     <button mat-menu-item routerLink="course-form">Create course</button>
   </mat-menu>
-  <!--app-logout></app-logout-->
+
+  <app-logout></app-logout>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
