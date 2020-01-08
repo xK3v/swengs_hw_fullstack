@@ -39,7 +39,7 @@ export class StudentFormComponent implements OnInit {
       'latitude': [null],
       'longitude': [null],
       'department': [null],
-      'courses': [[]],
+      'courses': [[]], //TODO: auf 10 Beschraenken (CustomValidator)
       'active': [true],
     });
 
