@@ -4,7 +4,6 @@ from django.db import models
 class Department(models.Model):
 
     name = models.TextField()
-    #capital = models.TextField(null=True)
 
     def __str__(self):
         return self.name

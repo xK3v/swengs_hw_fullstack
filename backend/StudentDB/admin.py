@@ -2,7 +2,6 @@ from django.contrib import admin
 from .models import *
 
 class StudentAdmin(admin.ModelAdmin): pass
-    #list_filter = ( 'actors__last_name', )
 
 
 class CourseAdmin(admin.ModelAdmin): pass
