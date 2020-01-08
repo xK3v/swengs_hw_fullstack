@@ -3,14 +3,12 @@
     <input matInput type="text" placeholder="First name" formControlName="last_name" required>
     <mat-hint align="end">Last name of student</mat-hint>
     <mat-error *ngIf="studentFormGroup.controls.last_name.hasError('required')">Last name is required</mat-error>
-    <!--mat-error *ngIf="movieFormGroup.controls.title.hasError('titleAlreadyExists')">Title already exists</mat-error-->
   </mat-form-field>
 
   <mat-form-field>
     <input matInput type="text" placeholder="First name" formControlName="first_name" required>
     <mat-hint align="end">First name of student</mat-hint>
     <mat-error *ngIf="studentFormGroup.controls.first_name.hasError('required')">First name is required</mat-error>
-    <!--mat-error *ngIf="movieFormGroup.controls.title.hasError('titleAlreadyExists')">Title already exists</mat-error-->
   </mat-form-field>
 
   <mat-radio-group formControlName="gender">
@@ -43,12 +41,12 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-select placeholder="Course" formControlName="courses" multiple>
-      <!--mat-option [value]="null">Unknown</mat-option-->
+    <mat-select placeholder="Course (10 max)" formControlName="courses" multiple>
       <mat-option [value]="courseOption.id"
                   *ngFor="let courseOption of courseOptions">{{courseOption.name}}</mat-option>
     </mat-select>
-    <mat-hint align="end">The courses of the student</mat-hint>
+    <mat-hint align="end">The courses of the student (max. 10)</mat-hint>
+    <mat-error *ngIf="studentFormGroup.controls.courses.hasError('coursesGT10')">Max. 10 courses per student</mat-error>
   </mat-form-field>
 
   <mat-slide-toggle formControlName="active">Active</mat-slide-toggle>

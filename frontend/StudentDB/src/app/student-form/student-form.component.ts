@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, ValidatorFn, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {StudentService} from '../service/student.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -39,13 +39,20 @@ export class StudentFormComponent implements OnInit {
       'latitude': [null],
       'longitude': [null],
       'department': [null],
-      'courses': [[]], //TODO: auf 10 Beschraenken (CustomValidator)
+      'courses': [[], this.courseCountValidator()],
       'active': [true],
     });
 
     if (data.student) {
       this.studentFormGroup.patchValue(data.student);
     }
+  }
+
+  courseCountValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const forbidden = control.value.length > 10;
+      return forbidden ? {'coursesGT10': {value: control.value}} : null;
+    };
   }
 
   createStudent() {

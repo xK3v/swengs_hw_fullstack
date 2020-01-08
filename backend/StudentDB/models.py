@@ -38,7 +38,7 @@ class Course(models.Model):
     name = models.TextField()
     ects = models.PositiveIntegerField()
     sws = models.PositiveIntegerField()
-    description = models.TextField()
+    description = models.TextField(null=True)
     active = models.BooleanField()
 
     def __str__(self):

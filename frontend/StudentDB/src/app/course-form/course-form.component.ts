@@ -42,14 +42,12 @@ export class CourseFormComponent implements OnInit {
 
     if (course.id) {
       this.courseService.updateCourse(course).subscribe(() => {
-        // alert('updated successfully');
         this.snackBar.open('updated successfully', 'OKAY', {
           duration: 3000
         });
       });
     } else {
       this.courseService.createCourse(course).subscribe((response: any) => {
-        // alert('created successfully');
         this.snackBar.open('created successfully', 'OKAY', {
           duration: 3000
         });
