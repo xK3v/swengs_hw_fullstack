@@ -41,7 +41,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-select placeholder="Course (10 max)" formControlName="courses" multiple>
+    <mat-select placeholder="Courses (10 max)" formControlName="courses" multiple>
       <mat-option [value]="courseOption.id"
                   *ngFor="let courseOption of courseOptions">{{courseOption.name}}</mat-option>
     </mat-select>
