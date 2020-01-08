@@ -25,6 +25,9 @@ export class CourseFormComponent implements OnInit {
       'id': [null],
       'name': ['', Validators.required],
       'ects': ['', Validators.required],
+      'sws': [null],
+      'description': [null],
+      'active': [true],
     });
 
     if (id) {

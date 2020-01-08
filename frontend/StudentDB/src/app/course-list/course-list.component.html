@@ -9,6 +9,11 @@
     <td mat-cell *matCellDef="let course">{{course.ects}}</td>
   </ng-container>
 
+  <ng-container matColumnDef="sws">
+    <th mat-header-cell *matHeaderCellDef>SWS</th>
+    <td mat-cell *matCellDef="let course">{{course.sws}}</td>
+  </ng-container>
+
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>Actions</th>
     <td mat-cell *matCellDef="let course">

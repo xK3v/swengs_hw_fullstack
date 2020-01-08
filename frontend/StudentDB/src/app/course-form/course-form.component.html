@@ -13,6 +13,20 @@
     <!--mat-error *ngIf="movieFormGroup.controls.title.hasError('titleAlreadyExists')">Title already exists</mat-error-->
   </mat-form-field>
 
+  <mat-form-field>
+    <input matInput type="number" placeholder="SWS" formControlName="sws" required>
+    <mat-hint align="end">SWS count of the course</mat-hint>
+    <!--mat-error *ngIf="movieFormGroup.controls.title.hasError('titleAlreadyExists')">Title already exists</mat-error-->
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Description" formControlName="description"></textarea>
+    <mat-hint align="end">Description of the course</mat-hint>
+  </mat-form-field>
+
+  <mat-slide-toggle formControlName="active">Active</mat-slide-toggle>
+
+
   <br/>
 
   <mat-card-actions align="center">

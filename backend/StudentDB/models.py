@@ -21,14 +21,12 @@ class Student(models.Model):
     last_name = models.TextField()
     first_name = models.TextField()
     gender = models.CharField(max_length=1, choices=CHOICES)
-    #genre = models.CharField(max_length=1, choices=CHOICES, null=True)
     dob = models.DateField()
     latitude = models.FloatField()
     longitude = models.FloatField()
     active = models.BooleanField()
     department = models.ForeignKey(Department, on_delete=models.CASCADE, null=True)
     courses = models.ManyToManyField('Course', blank=True)
-    #rating = models.PositiveIntegerField()
 
 
     def __str__(self):
@@ -38,10 +36,10 @@ class Student(models.Model):
 class Course(models.Model):
 
     name = models.TextField()
-    #last_name = models.TextField()
     ects = models.PositiveIntegerField()
-    #year_of_birth = models.IntegerField()
+    sws = models.PositiveIntegerField()
+    description = models.TextField()
+    active = models.BooleanField()
 
     def __str__(self):
-        #return '%s %s (%s)' % (self.name, self.last_name, self.year_of_birth)
         return '%s (%s ECTS)' % (self.name, self.ects)

@@ -10,7 +10,7 @@ import {CourseService} from '../service/course.service';
 export class CourseListComponent implements OnInit {
 
   courses: any[];
-  displayedColumns = ['name', 'ects', 'id'];
+  displayedColumns = ['name', 'ects', 'sws', 'id'];
 
   constructor(private httpClient: HttpClient, private courseService: CourseService) { }
 
