@@ -34,7 +34,7 @@ class StudentListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Student
-        fields = ['id', 'last_name', 'first_name', 'gender', 'dob', 'active', 'department_name']
+        fields = ['id', 'last_name', 'first_name', 'gender', 'dob', 'latitude', 'longitude', 'active', 'department_name']
 
     def get_department_name(self, obj):
         return obj.department.name if obj.department else ''
