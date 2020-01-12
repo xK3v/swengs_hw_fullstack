@@ -1,4 +1,10 @@
 # SWENGS Homework by Kevin Kazianschütz
+
+##  Login
+
+User: admin
+Password: Pa55w.rd
+
 ##  Features
 - 3 Models (Students, Courses, Departments)
 	- Every Student is assigned to one Department
